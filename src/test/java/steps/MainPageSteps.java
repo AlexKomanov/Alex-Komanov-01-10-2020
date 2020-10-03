@@ -72,5 +72,25 @@ public class MainPageSteps {
         return this;
     }
 
+    public MainPageSteps backToTop(){
+        mainPage.clickUpButtion();
+        return this;
+    }
+
+    public MainPageSteps clickOnSlickArrow(String button){
+        mainPage.clickArrow(button);
+        return this;
+    }
+
+    public MainPageSteps validateCorrectSwitchOfArrow(String button){
+        mainPage.assertCorrectSwitch(button);
+        return this;
+    }
+
+    public MainPageSteps validateFooterForm(String status){
+        mainPage.assertFooterForm(status);
+        return this;
+    }
+
 
 }

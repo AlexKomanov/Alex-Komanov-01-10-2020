@@ -46,6 +46,7 @@ public abstract class BasePage {
         //AllureAttachment.attachElementScreenshot(element);
         highlightElement(element);
         element.click();
+        sleep(1000);
     }
 
     public String getElementText(WebElement element){
@@ -105,5 +106,10 @@ public abstract class BasePage {
 
     public Long checkPosition(){
         return (Long) js.executeScript("return window.pageYOffset;");
+    }
+
+    public void naviעateToObject(WebElement element){
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        sleep(2000);
     }
 }
