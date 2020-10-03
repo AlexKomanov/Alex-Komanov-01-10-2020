@@ -35,6 +35,8 @@ public class WhatsAppPageSteps {
     public WhatsAppPageSteps validateChatButtonPresence(String expectedText, String attribute, String expectedLink){
         whatsAppPage.assertChatButtonText(expectedText);
         whatsAppPage.assertChatButtonLink(attribute, expectedLink);
+        whatsAppPage.assertChatButtonClickable();
+        whatsAppPage.assertChatButtonDisplayed();
         return this;
     }
 

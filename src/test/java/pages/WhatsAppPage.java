@@ -15,12 +15,6 @@ public class WhatsAppPage extends BasePage{
     @FindBy(id = "action-button")
     WebElement continueToChatButton;
 
-    private static String whatsAppWindowHandle;
-
-    public String getWhatsAppWindowHandle() {
-        return whatsAppWindowHandle;
-    }
-
     public WhatsAppPage() {
         super();
     }
@@ -45,19 +39,22 @@ public class WhatsAppPage extends BasePage{
         assertThat(getElementText(continueToChatButton)).as("Wrong link").isEqualTo(expectedText);
     }
 
-    public void getWhatsAppWindowValue(){
-        sleep(2000);
-        whatsAppWindowHandle = getWindowHandle();
+    public void assertChatButtonClickable(){
+        assertThat(continueToChatButton.isEnabled()).as("Button not clickable").isTrue();
     }
 
-
+    public void assertChatButtonDisplayed(){
+        assertThat(continueToChatButton.isDisplayed()).as("Button doesn't exist").isTrue();
+    }
 
     public void closeCurrentWindow(){
         closeCurrentTab();
     }
 
-
     public void switchBackToMainWindow(String window){
         switchToWindow(window);
     }
+
+
+
 }
