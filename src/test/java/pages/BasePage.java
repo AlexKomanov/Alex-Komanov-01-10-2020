@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Set;
 
 import static tests.BaseTest.getDriver;
+import static tests.BaseTest.getJs;
 
 
 /**
@@ -17,10 +19,12 @@ import static tests.BaseTest.getDriver;
 public abstract class BasePage {
 
     WebDriver driver;
+    JavascriptExecutor js;
     DevTools devTools;
 
     public BasePage() {
         this.driver = getDriver();
+        this.js = getJs();
         PageFactory.initElements(driver, this);
     }
 
@@ -33,13 +37,14 @@ public abstract class BasePage {
     }
 
     public void fillText(WebElement element, String text){
-        //AllureAttachment.attachElementScreenshot(element);
+        highlightElement(element);
         element.clear();
         element.sendKeys(text);
     }
 
     public void click(WebElement element){
         //AllureAttachment.attachElementScreenshot(element);
+        highlightElement(element);
         element.click();
     }
 
@@ -78,5 +83,23 @@ public abstract class BasePage {
 
     public String getPageUrl(){
         return driver.getCurrentUrl();
+    }
+
+    /** JS Executor Methods **/
+    public void scrollDown(){
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        sleep(2000);
+    }
+
+    public void highlightElement(WebElement element) {
+        //Keep the old style to change it back
+        String originalStyle = element.getAttribute("style");
+        // Change the style
+        js.executeScript("arguments[0].setAttribute('style','background: yellow; border: 2px solid red;');", element);
+        sleep(300);
+        // Change the style back
+        js.executeScript("arguments[0].setAttribute('style','" + originalStyle +";');", element);
+        sleep(400);
+
     }
 }

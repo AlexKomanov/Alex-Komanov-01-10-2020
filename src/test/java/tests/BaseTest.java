@@ -1,6 +1,7 @@
 package tests;
 
 import com.google.common.collect.ImmutableMap;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
@@ -37,8 +38,15 @@ public abstract class BaseTest {
     //Property Reader Pattern
 
     private static WebDriver driver;
+    private static JavascriptExecutor js;
+
+
     MainPageSteps steps;
     WhatsAppPageSteps whatsAppPageSteps;
+
+    public static JavascriptExecutor getJs() {
+        return js;
+    }
 
     public static WebDriver getDriver() {
         return driver;
@@ -47,6 +55,7 @@ public abstract class BaseTest {
     @BeforeClass
     public void setUp(){
         driver = DriverFactory.getDriver(PropertyReader.getBrowser());
+        js = (JavascriptExecutor) driver;
         baseUrl = PropertyReader.getUrl();
         driver.get(baseUrl);
         browserName = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
