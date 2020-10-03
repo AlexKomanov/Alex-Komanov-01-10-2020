@@ -12,8 +12,14 @@ public class MainPage extends BasePage {
 
     @FindBy(name = "name")
     WebElement footerNameField;
+    @FindBy(name = "email")
+    WebElement footerEmailField;
+    @FindBy(name = "phone")
+    WebElement footerPhoneField;
     @FindBy(css = "[class='Footer__Button-sc-1xqajj9-7 jixtxJ']")
     WebElement footerSendButton;
+    @FindBy(css = "[name='name'] + label")
+    WebElement footerNameErrorMessage;
     @FindBy(css = "[name='email'] + label")
     WebElement footerEmailErrorMessage;
     @FindBy(css = "[name='phone'] + label")
@@ -44,6 +50,26 @@ public class MainPage extends BasePage {
     @FindBy(id = "footer")
     WebElement footerForm;
 
+    @FindBy(css = ".form__ButtonContact-sc-1ju2h8q-1")
+    WebElement lowerFormSendButton;
+    @FindBy(css = "#name")
+    WebElement lowerFormNameField;
+    @FindBy(css = "#company")
+    WebElement lowerFormCompanyField;
+    @FindBy(css = "#email")
+    WebElement lowerFormEmailField;
+    @FindBy(css = "#telephone")
+    WebElement lowerFormPhoneField;
+
+    @FindBy(css = "#name + span")
+    WebElement lowerFormNameFieldError;
+    @FindBy(css = "#company + span")
+    WebElement lowerFormCompanyFieldError;
+    @FindBy(css = "#email + span")
+    WebElement lowerFormEmailFieldError;
+    @FindBy(css = "#telephone + span")
+    WebElement lowerFormPhoneFieldError;
+
 
     protected static String mainPageWindow;
     protected static int startDataIndex;
@@ -63,12 +89,12 @@ public class MainPage extends BasePage {
         fillText(footerNameField, nameValue);
     }
 
-    public void fillFooterEmailField(String text) {
-
+    public void fillFooterEmailField(String emailValue) {
+        fillText(footerEmailField, emailValue);
     }
 
-    public void fillFooterPhoneField(String text) {
-
+    public void fillFooterPhoneField(String phoneValue) {
+        fillText(footerPhoneField, phoneValue);
     }
 
     public void assertEmailErrorMessage(String expectedMessage) {
@@ -175,6 +201,52 @@ public class MainPage extends BasePage {
                 break;
         }
 
+    }
+
+    public void fillLowerFormName(String name) {
+        fillText(lowerFormNameField, name);
+    }
+
+    public void fillLowerFormCompany(String company) {
+        fillText(lowerFormCompanyField, company);
+    }
+
+    public void fillLowerFormEmail(String email) {
+        fillText(lowerFormEmailField, email);
+    }
+
+    public void fillLowerFormPhone(String phone) {
+        fillText(lowerFormPhoneField, phone);
+    }
+
+    public void clickLowerFormSendButton() {
+        click(lowerFormSendButton);
+    }
+
+    public void assertFormError(String field, String expectedError) {
+        switch (field) {
+            case "Name":
+                assertThat(getElementText(lowerFormNameFieldError)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+            case "Company":
+                assertThat(getElementText(lowerFormCompanyFieldError)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+            case "Email":
+                assertThat(getElementText(lowerFormEmailFieldError)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+            case "Phone":
+                assertThat(getElementText(lowerFormPhoneFieldError)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+            case "FooterName":
+                assertThat(getElementText(footerNameErrorMessage)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+            case "FooterEmail":
+                assertThat(getElementText(footerEmailErrorMessage)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+            case "FooterPhone":
+                assertThat(getElementText(footerPhoneErrorMessage)).as("Wrong Message").isEqualTo(expectedError);
+                break;
+        }
     }
 
 

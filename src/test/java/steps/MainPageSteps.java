@@ -14,26 +14,26 @@ public class MainPageSteps {
     private WhatsAppPage whatsAppPage = new WhatsAppPage();
 
 
-    @Step("Writing '{nameValue}' in the E-Mail field")
-    public MainPageSteps fillFooterNameFieldAndSubmit(String nameValue) {
-        mainPage.sleep(2000);
-        mainPage.fillFooterNameField(nameValue);
-        mainPage.clickFooterSendButton();
-        AllureAttachment.addTextAttachment("Filling email...");
-        return this;
-    }
-
-    @Step("Validating that error message is '{expectedErrorMessage}'")
-    public MainPageSteps validateFooterEmailErrorMessage(String expectedErrorMessage) {
-        mainPage.assertEmailErrorMessage(expectedErrorMessage);
-        return this;
-    }
-
-    @Step("Validating that error message is '{expectedErrorMessage}'")
-    public MainPageSteps validateFooterPhoneErrorMessage(String expectedErrorMessage) {
-        mainPage.assertPhoneErrorMessage(expectedErrorMessage);
-        return this;
-    }
+//    @Step("Writing '{nameValue}' in the E-Mail field")
+//    public MainPageSteps fillFooterNameFieldAndSubmit(String nameValue) {
+//        mainPage.sleep(2000);
+//        mainPage.fillFooterNameField(nameValue);
+//        mainPage.clickFooterSendButton();
+//        AllureAttachment.addTextAttachment("Filling email...");
+//        return this;
+//    }
+//
+//    @Step("Validating that error message is '{expectedErrorMessage}'")
+//    public MainPageSteps validateFooterEmailErrorMessage(String expectedErrorMessage) {
+//        mainPage.assertEmailErrorMessage(expectedErrorMessage);
+//        return this;
+//    }
+//
+//    @Step("Validating that error message is '{expectedErrorMessage}'")
+//    public MainPageSteps validateFooterPhoneErrorMessage(String expectedErrorMessage) {
+//        mainPage.assertPhoneErrorMessage(expectedErrorMessage);
+//        return this;
+//    }
 
     public MainPageSteps validateMainPageTitle(String expectedTitle) {
         mainPage.assertMainPageTitle(expectedTitle);
@@ -89,6 +89,29 @@ public class MainPageSteps {
 
     public MainPageSteps validateFooterForm(String status){
         mainPage.assertFooterForm(status);
+        mainPage.refreshPage();
+        return this;
+    }
+
+    public MainPageSteps fillIncorrectLowerForm(String name, String company, String email, String phone){
+        mainPage.fillLowerFormName(name);
+        mainPage.fillLowerFormCompany(company);
+        mainPage.fillLowerFormEmail(email);
+        mainPage.fillLowerFormPhone(phone);
+        mainPage.clickLowerFormSendButton();
+        return this;
+    }
+
+    public MainPageSteps fillIncorrectFooterForm(String name, String email, String phone){
+        mainPage.fillFooterNameField(name);
+        mainPage.fillFooterEmailField(email);
+        mainPage.fillFooterPhoneField(phone);
+        mainPage.clickFooterSendButton();
+        return this;
+    }
+
+    public MainPageSteps validateFieldError(String field, String expectedErrorMessage){
+        mainPage.assertFormError(field, expectedErrorMessage);
         return this;
     }
 

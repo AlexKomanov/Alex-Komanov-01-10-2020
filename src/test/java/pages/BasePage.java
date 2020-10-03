@@ -86,6 +86,11 @@ public abstract class BasePage {
         return driver.getCurrentUrl();
     }
 
+    public void refreshPage(){
+        driver.navigate().refresh();
+        sleep(2000);
+    }
+
     /** JS Executor Methods **/
     public void scrollDown(){
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
