@@ -16,7 +16,7 @@ public class WhatsAppTests extends BaseTest{
     @Story("Basic Tests")
     @Description("Test validates correct redirection to WhatsApp page")
     @Severity(SeverityLevel.BLOCKER)
-    @Test(description = "Correct redirection to WhatsApp Page")
+    @Test(description = "01_Correct redirection to WhatsApp Page")
     public void test_01(){
         steps.navigateToWhatsAppPage()
                 .validateCorrectPageTitle("Share on WhatsApp")
@@ -27,7 +27,7 @@ public class WhatsAppTests extends BaseTest{
     @Story("Basic Tests")
     @Description("Test validates presence of the elements on WhatsApp page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Presence of the elements")
+    @Test(description = "02_Presence of the elements")
     public void test_02(){
         whatsAppPageSteps
                 .validateMainTitle("Chat on WhatsApp with +972 54-494-5333")
@@ -39,7 +39,7 @@ public class WhatsAppTests extends BaseTest{
     @Story("Basic Tests")
     @Description("Test validates navigate to the Main Page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Redirection to the Main Page")
+    @Test(description = "03_Redirection to the Main Page")
     public void test_03(){
         whatsAppPageSteps
                 .closeWindowAndSwitchToMain()

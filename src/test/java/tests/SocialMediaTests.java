@@ -16,7 +16,7 @@ public class SocialMediaTests extends BaseTest {
     @Story("Basic Tests")
     @Description("Test validates correct redirection to LinkedIn page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Correct redirection to LinkedIn Page")
+    @Test(description = "01_Correct redirection to LinkedIn Page")
     public void test_01() {
         steps.navigateToSocialMedia("LinkedIn")
                 .validateCorrectRedirection("LinkedIn", "https://www.linkedin.com");
@@ -26,7 +26,7 @@ public class SocialMediaTests extends BaseTest {
     @Story("Basic Tests")
     @Description("Test validates correct redirection to WhatsApp page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Correct redirection to WhatsApp Page")
+    @Test(description = "02_Correct redirection to WhatsApp Page")
     public void test_02() {
         socialMediaSteps
                 .closeWindowAndSwitchToMain()
@@ -38,7 +38,7 @@ public class SocialMediaTests extends BaseTest {
     @Story("Basic Tests")
     @Description("Test validates correct redirection to FaceBook page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Correct redirection to FaceBook Page")
+    @Test(description = "03_Correct redirection to FaceBook Page")
     public void test_03() {
         socialMediaSteps
                 .closeWindowAndSwitchToMain()
@@ -50,7 +50,7 @@ public class SocialMediaTests extends BaseTest {
     @Story("Basic Tests")
     @Description("Test validates correct redirection to WebSite page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Correct redirection to WebSite Page")
+    @Test(description = "04_Correct redirection to WebSite Page")
     public void test_04() {
         socialMediaSteps
                 .closeWindowAndSwitchToMain()
@@ -62,7 +62,7 @@ public class SocialMediaTests extends BaseTest {
     @Story("Basic Tests")
     @Description("Test validates correct redirection to Main page")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Correct redirection to Main Page")
+    @Test(description = "05_Correct redirection to Main Page")
     public void test_05() {
         socialMediaSteps
                 .closeWindowAndSwitchToMain()
@@ -73,7 +73,7 @@ public class SocialMediaTests extends BaseTest {
     @Story("Basic Tests")
     @Description("Test validates correct mailTo link")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Correct mailTo link")
+    @Test(description = "06_Correct mailTo link")
     public void test_06() {
         steps.
                 validateMailToLink("href", "mailto:mati@herolo.co.il", "mati@herolo.co.il");
