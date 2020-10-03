@@ -102,4 +102,8 @@ public abstract class BasePage {
         sleep(400);
 
     }
+
+    public Long checkPosition(){
+        return (Long) js.executeScript("return window.pageYOffset;");
+    }
 }
