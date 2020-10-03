@@ -30,6 +30,8 @@ public class MainPage extends BasePage {
     WebElement whatsAppSiteIcon;
     @FindBy(css = "[class='socialMediaBar__ImgSocial-sc-1f95hbj-2 jCiLrI']")
     WebElement linkedInIcon;
+    @FindBy(css = "a[class='commun__ContactText-mgrfny-7 dPWxSc']")
+    WebElement mailToLink;
 
 
     protected static String mainPageWindow;
@@ -78,6 +80,14 @@ public class MainPage extends BasePage {
         assertThat(getPageTitle()).as("Wrong title").isEqualTo(expectedTitle);
     }
 
+    public void assertMailToText(String expectedText){
+        assertThat(getElementText(mailToLink)).as("Wrong Text").isEqualTo(expectedText);
+    }
+
+    public void assertMailToLink(String attribute, String expectedLink){
+        assertThat(getAttributeValue(mailToLink, attribute)).as("Wrong Text").isEqualTo(expectedLink);
+    }
+
     public void clickFooterSendButton(){
         click(footerSendButton);
     }
@@ -112,9 +122,6 @@ public class MainPage extends BasePage {
                 break;
         }
     }
-
-
-
 
 
 }

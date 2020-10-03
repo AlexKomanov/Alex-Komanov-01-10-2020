@@ -15,7 +15,7 @@ public class MainPageSteps {
 
 
     @Step("Writing '{nameValue}' in the E-Mail field")
-    public MainPageSteps fillFooterNameFieldAndSubmit(String nameValue){
+    public MainPageSteps fillFooterNameFieldAndSubmit(String nameValue) {
         mainPage.sleep(2000);
         mainPage.fillFooterNameField(nameValue);
         mainPage.clickFooterSendButton();
@@ -24,23 +24,23 @@ public class MainPageSteps {
     }
 
     @Step("Validating that error message is '{expectedErrorMessage}'")
-    public MainPageSteps validateFooterEmailErrorMessage(String expectedErrorMessage){
+    public MainPageSteps validateFooterEmailErrorMessage(String expectedErrorMessage) {
         mainPage.assertEmailErrorMessage(expectedErrorMessage);
         return this;
     }
 
     @Step("Validating that error message is '{expectedErrorMessage}'")
-    public MainPageSteps validateFooterPhoneErrorMessage(String expectedErrorMessage){
+    public MainPageSteps validateFooterPhoneErrorMessage(String expectedErrorMessage) {
         mainPage.assertPhoneErrorMessage(expectedErrorMessage);
         return this;
     }
 
-    public MainPageSteps validateMainPageTitle(String expectedTitle){
+    public MainPageSteps validateMainPageTitle(String expectedTitle) {
         mainPage.assertMainPageTitle(expectedTitle);
         return this;
     }
 
-    public WhatsAppPageSteps navigateToWhatsAppPage(){
+    public WhatsAppPageSteps navigateToWhatsAppPage() {
         mainPage.getMainPageWindowHandle();
         mainPage.clickWhatsAppButton();
         //whatsAppPage.getWhatsAppWindowHandle();
@@ -48,13 +48,18 @@ public class MainPageSteps {
         return new WhatsAppPageSteps();
     }
 
-    public SocialMediaSteps navigateToSocialMedia(String socialMedia){
+    public SocialMediaSteps navigateToSocialMedia(String socialMedia) {
         mainPage.getMainPageWindowHandle();
         mainPage.clickSocialMedia(socialMedia);
         mainPage.switchToOpenedTab();
         return new SocialMediaSteps();
     }
 
+    public MainPageSteps validateMailToLink(String attribute, String expectedLink, String expectedText) {
+        mainPage.assertMailToLink(attribute, expectedLink);
+        mainPage.assertMailToText(expectedText);
+        return this;
+    }
 
 
 }
