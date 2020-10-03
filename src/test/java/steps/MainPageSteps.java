@@ -61,5 +61,16 @@ public class MainPageSteps {
         return this;
     }
 
+    public MainPageSteps validateBackToTopButtonAction(){
+        mainPage.clickUpButtion();
+        mainPage.assertUpperPosition();
+        return this;
+    }
+
+    public MainPageSteps scrollDown(){
+        mainPage.scrollDown();
+        return this;
+    }
+
 
 }

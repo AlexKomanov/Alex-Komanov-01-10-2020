@@ -32,6 +32,8 @@ public class MainPage extends BasePage {
     WebElement linkedInIcon;
     @FindBy(css = "a[class='commun__ContactText-mgrfny-7 dPWxSc']")
     WebElement mailToLink;
+    @FindBy(css = "[class='backToTop__BtnGoUp-sc-1deq75d-0 fIqtKc']")
+    WebElement backToTopButton;
 
 
     protected static String mainPageWindow;
@@ -84,12 +86,21 @@ public class MainPage extends BasePage {
         assertThat(getElementText(mailToLink)).as("Wrong Text").isEqualTo(expectedText);
     }
 
+    public void assertUpperPosition(){
+        assertThat(checkPosition()).as("Incorrect Position").isEqualTo(0);
+    }
+
     public void assertMailToLink(String attribute, String expectedLink){
         assertThat(getAttributeValue(mailToLink, attribute)).as("Wrong Text").isEqualTo(expectedLink);
     }
 
     public void clickFooterSendButton(){
         click(footerSendButton);
+    }
+
+    public void clickUpButtion(){
+        click(backToTopButton);
+        sleep(3000);
     }
 
     public void clickWhatsAppButton(){

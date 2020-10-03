@@ -10,7 +10,7 @@ import utils.AllureAttachment;
 
 @Epic("Main Page")
 @Feature("Base Test Feature")
-public class SearchTest extends BaseTest {
+public class MainPageTests extends BaseTest {
 
 
 
@@ -38,6 +38,12 @@ public class SearchTest extends BaseTest {
 
 
 
+    }
+
+    @Test
+    public void test_01(){
+        steps.scrollDown()
+                .validateBackToTopButtonAction();
     }
 
 
