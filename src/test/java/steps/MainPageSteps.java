@@ -43,9 +43,16 @@ public class MainPageSteps {
     public WhatsAppPageSteps navigateToWhatsAppPage(){
         mainPage.getMainPageWindowHandle();
         mainPage.clickWhatsAppButton();
-        whatsAppPage.getWhatsAppWindowHandle();
-        whatsAppPage.switchToWhatsAppWindow();
+        //whatsAppPage.getWhatsAppWindowHandle();
+        mainPage.switchToOpenedTab();
         return new WhatsAppPageSteps();
+    }
+
+    public SocialMediaSteps navigateToSocialMedia(String socialMedia){
+        mainPage.getMainPageWindowHandle();
+        mainPage.clickSocialMedia(socialMedia);
+        mainPage.switchToOpenedTab();
+        return new SocialMediaSteps();
     }
 
 

@@ -50,10 +50,7 @@ public class WhatsAppPage extends BasePage{
         whatsAppWindowHandle = getWindowHandle();
     }
 
-    public void switchToWhatsAppWindow(){
-        sleep(2000);
-        switchToOpenedWindow();
-    }
+
 
     public void closeCurrentWindow(){
         closeCurrentTab();

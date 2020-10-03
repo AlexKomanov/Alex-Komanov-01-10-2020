@@ -22,6 +22,16 @@ public class MainPage extends BasePage {
     @FindBy(css = "[class = 'callUsWhatsapp__BtnWhatsapp-sc-1bcgurk-0 cPQmgB']")
     WebElement whatsAppButton;
 
+    @FindBy(css = "[class='socialMediaBar__ImgSocial-sc-1f95hbj-2 gAmXai']")
+    WebElement webSiteIcon;
+    @FindBy(css = "[class='socialMediaBar__ImgSocial-sc-1f95hbj-2 gdrWsw']")
+    WebElement faceBookIcon;
+    @FindBy(css = "[class='socialMediaBar__ImgSocial-sc-1f95hbj-2 iZfnyd']")
+    WebElement whatsAppSiteIcon;
+    @FindBy(css = "[class='socialMediaBar__ImgSocial-sc-1f95hbj-2 jCiLrI']")
+    WebElement linkedInIcon;
+
+
     protected static String mainPageWindow;
 
     public String getMainPageWindow() {
@@ -79,6 +89,31 @@ public class MainPage extends BasePage {
     public void getMainPageWindowHandle(){
         mainPageWindow = getWindowHandle();
     }
+
+    public void switchToOpenedTab(){
+        sleep(2000);
+        switchToOpenedWindow();
+    }
+
+    public void clickSocialMedia(String socialMedia){
+        scrollDown();
+        switch (socialMedia){
+            case "LinkedIn":
+                click(linkedInIcon);
+                break;
+            case "WhatsApp":
+                click(whatsAppSiteIcon);
+                break;
+            case "FaceBook":
+                click(faceBookIcon);
+                break;
+            case "WebSite":
+                click(webSiteIcon);
+                break;
+        }
+    }
+
+
 
 
 
