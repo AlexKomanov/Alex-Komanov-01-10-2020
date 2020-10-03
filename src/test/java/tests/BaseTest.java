@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import steps.MainPageSteps;
+import steps.WhatsAppPageSteps;
 import utils.DriverFactory;
 import utils.PropertyReader;
 
@@ -37,6 +38,7 @@ public abstract class BaseTest {
 
     private static WebDriver driver;
     MainPageSteps steps;
+    WhatsAppPageSteps whatsAppPageSteps;
 
     public static WebDriver getDriver() {
         return driver;
@@ -50,6 +52,7 @@ public abstract class BaseTest {
         browserName = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
         browserVersion = ((RemoteWebDriver) driver).getCapabilities().getVersion();
         steps = new MainPageSteps();
+        whatsAppPageSteps = new WhatsAppPageSteps();
         allureEnvironmentWriter(ImmutableMap.<String, String>builder().put("Browser", browserName.toUpperCase()).put("Browser Version", browserVersion).put("URL", baseUrl).build());
     }
 

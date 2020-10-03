@@ -15,20 +15,16 @@ public class WhatsAppPage extends BasePage{
     @FindBy(id = "action-button")
     WebElement continueToChatButton;
 
-    String whatsAppWindowHandle;
+    private static String whatsAppWindowHandle;
+
+    public String getWhatsAppWindowHandle() {
+        return whatsAppWindowHandle;
+    }
 
     public WhatsAppPage() {
         super();
     }
 
-    public void printTitle(){
-        System.out.println(driver.getTitle());
-    }
-
-    public void getButtonText(){
-        System.out.println(getElementText(chatWithTitle));
-        System.out.println(getElementText(continueToChatButton));
-    }
     public void assertMainTitle(String expectedTitle){
         assertThat(getElementText(chatWithTitle)).as("Wrong title").isEqualTo(expectedTitle);
     }
@@ -41,13 +37,15 @@ public class WhatsAppPage extends BasePage{
         assertThat(getPageUrl()).as("Wrong URL").isEqualTo(expectedTitle);
     }
 
-    public void assertButtonLink(String expectedTitle){
-        assertThat(getAttributeValue(continueToChatButton, "href")).as("Wrong link").isEqualTo(expectedTitle);
+    public void assertChatButtonLink(String attribute, String expectedValue){
+        assertThat(getAttributeValue(continueToChatButton, attribute)).as("Wrong link").isEqualTo(expectedValue);
     }
 
+    public void assertChatButtonText(String expectedText){
+        assertThat(getElementText(continueToChatButton)).as("Wrong link").isEqualTo(expectedText);
+    }
 
-
-    public void getWhatsAppWindowHandle(){
+    public void getWhatsAppWindowValue(){
         sleep(2000);
         whatsAppWindowHandle = getWindowHandle();
     }

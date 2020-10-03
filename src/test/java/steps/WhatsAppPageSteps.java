@@ -11,12 +11,6 @@ public class WhatsAppPageSteps {
     private WhatsAppPage whatsAppPage = new WhatsAppPage();
     private MainPage mainPage = new MainPage();
 
-    public WhatsAppPageSteps getInfo(){
-        whatsAppPage.getButtonText();
-        whatsAppPage.printTitle();
-        return this;
-    }
-
     public MainPageSteps closeWindowAndSwitchToMain(){
         whatsAppPage.closeCurrentWindow();
         whatsAppPage.switchBackToMainWindow(mainPage.getMainPageWindow());
@@ -35,6 +29,12 @@ public class WhatsAppPageSteps {
 
     public WhatsAppPageSteps validateMainTitle(String expectedTitle){
         whatsAppPage.assertMainTitle(expectedTitle);
+        return this;
+    }
+
+    public WhatsAppPageSteps validateChatButtonPresence(String expectedText, String attribute, String expectedLink){
+        whatsAppPage.assertChatButtonText(expectedText);
+        whatsAppPage.assertChatButtonLink(attribute, expectedLink);
         return this;
     }
 

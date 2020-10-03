@@ -35,10 +35,15 @@ public class MainPageSteps {
         return this;
     }
 
+    public MainPageSteps validateMainPageTitle(String expectedTitle){
+        mainPage.assertMainPageTitle(expectedTitle);
+        return this;
+    }
+
     public WhatsAppPageSteps navigateToWhatsAppPage(){
         mainPage.getMainPageWindowHandle();
         mainPage.clickWhatsAppButton();
-        //whatsAppPage.getWhatsAppWindowHandle();
+        whatsAppPage.getWhatsAppWindowHandle();
         whatsAppPage.switchToWhatsAppWindow();
         return new WhatsAppPageSteps();
     }

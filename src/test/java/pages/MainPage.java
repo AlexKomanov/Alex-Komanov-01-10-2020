@@ -64,6 +64,10 @@ public class MainPage extends BasePage {
         assertThat(getElementText(footerPhoneErrorMessage)).as("Wrong message").isEqualTo(expectedMessage);
     }
 
+    public void assertMainPageTitle(String expectedTitle){
+        assertThat(getPageTitle()).as("Wrong title").isEqualTo(expectedTitle);
+    }
+
     public void clickFooterSendButton(){
         click(footerSendButton);
     }
