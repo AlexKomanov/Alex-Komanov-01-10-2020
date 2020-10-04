@@ -21,6 +21,7 @@ public class SocialMediaSteps {
     public MainPageSteps closeWindowAndSwitchToMain(){
          socialMediaPage.closeCurrentWindow();
          socialMediaPage.switchBack(mainPage.getMainPageWindow());
+         socialMediaPage.refreshPage();
          return new MainPageSteps();
     }
 
