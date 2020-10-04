@@ -94,6 +94,7 @@ public class MainPageSteps {
     }
 
     public MainPageSteps fillIncorrectLowerForm(String name, String company, String email, String phone){
+        mainPage.scrollDown();
         mainPage.fillLowerFormName(name);
         mainPage.fillLowerFormCompany(company);
         mainPage.fillLowerFormEmail(email);
@@ -116,6 +117,7 @@ public class MainPageSteps {
     }
 
     public ThankYouPageSteps fillCorrectLowerForm(String name, String company, String email, String phone){
+        mainPage.scrollDown();
         mainPage.fillLowerFormName(name);
         mainPage.fillLowerFormCompany(company);
         mainPage.fillLowerFormEmail(email);

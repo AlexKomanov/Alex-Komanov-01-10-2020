@@ -162,7 +162,7 @@ public class MainPage extends BasePage {
     }
 
     public void clickArrow(String button) {
-        naviעateToObject(upperSlickSlide);
+        navigateToObject(upperSlickSlide);
         startDataIndex = getDataIndex();
         switch (button) {
             case "Next":

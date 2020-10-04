@@ -12,8 +12,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import pages.ThankYouPage;
 import steps.MainPageSteps;
 import steps.SocialMediaSteps;
+import steps.ThankYouPageSteps;
 import steps.WhatsAppPageSteps;
 import utils.DriverFactory;
 import utils.PropertyReader;
@@ -45,6 +47,7 @@ public abstract class BaseTest {
     MainPageSteps steps;
     WhatsAppPageSteps whatsAppPageSteps;
     SocialMediaSteps socialMediaSteps;
+    ThankYouPageSteps thankYouPageSteps;
 
     public static JavascriptExecutor getJs() {
         return js;
@@ -65,6 +68,7 @@ public abstract class BaseTest {
         steps = new MainPageSteps();
         whatsAppPageSteps = new WhatsAppPageSteps();
         socialMediaSteps = new SocialMediaSteps();
+        thankYouPageSteps = new ThankYouPageSteps();
         allureEnvironmentWriter(ImmutableMap.<String, String>builder().put("Browser", browserName.toUpperCase()).put("Browser Version", browserVersion).put("URL", baseUrl).build());
     }
 

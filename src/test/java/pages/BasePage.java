@@ -102,10 +102,10 @@ public abstract class BasePage {
         String originalStyle = element.getAttribute("style");
         // Change the style
         js.executeScript("arguments[0].setAttribute('style','background: yellow; border: 2px solid red;');", element);
-        sleep(300);
+        sleep(500);
         // Change the style back
         js.executeScript("arguments[0].setAttribute('style','" + originalStyle +";');", element);
-        sleep(400);
+        sleep(100);
 
     }
 
@@ -113,7 +113,7 @@ public abstract class BasePage {
         return (Long) js.executeScript("return window.pageYOffset;");
     }
 
-    public void naviעateToObject(WebElement element){
+    public void navigateToObject(WebElement element){
         js.executeScript("arguments[0].scrollIntoView(true);", element);
         sleep(2000);
     }
