@@ -44,3 +44,17 @@
         - Test validates correct error messages of lower form
    - **06_Correct error messages of footer form:**   
         - Test validates correct error messages of footer form   
+
+## Test Results via 'Allure' test report framework  
+### Overall Results  
+**Overview tab**   
+<img src="https://user-images.githubusercontent.com/52656401/95007471-19b25a00-0619-11eb-8110-72e785cb742c.png">   
+### All test cases  
+**Behaviors tab**
+<img src="https://user-images.githubusercontent.com/52656401/95007503-6a29b780-0619-11eb-9b03-c878e66dfa0b.png">   
+### Results in graphs  
+**Graphs tab**
+<img src="https://user-images.githubusercontent.com/52656401/95007519-89284980-0619-11eb-9eb9-a3bbf5e1ec05.png">   
+### All test cases   
+**Suites tab**
+<img src="https://user-images.githubusercontent.com/52656401/95007540-a2c99100-0619-11eb-8ac2-469a215ca5c1.png">   
