@@ -1,4 +1,13 @@
 # **Alex-Komanov-01-10-2020**   
+##Overview
+This test projects uses several test patterns and techniques:
+- PageObject Pattern
+- PageFactory Pattern
+- Steps Pattern
+- Chains of invocations Pattern
+- Driver Factory Method Pattern
+- Property Reader Pattern
+
 ## Tests   
 - **WhatsApp Tests**
    - **01_Correct redirection to WhatsApp Page:**   

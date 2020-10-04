@@ -33,16 +33,8 @@ public abstract class BaseTest {
     String browserName;
     String baseUrl;
 
-    //PageObject Pattern
-    //PageFactory Pattern
-    //Steps Pattern
-    //Chains of invocations Pattern
-    //Driver Factory Method Pattern
-    //Property Reader Pattern
-
     private static WebDriver driver;
     private static JavascriptExecutor js;
-
 
     MainPageSteps steps;
     WhatsAppPageSteps whatsAppPageSteps;
