@@ -115,5 +115,24 @@ public class MainPageSteps {
         return this;
     }
 
+    public ThankYouPageSteps fillCorrectLowerForm(String name, String company, String email, String phone){
+        mainPage.fillLowerFormName(name);
+        mainPage.fillLowerFormCompany(company);
+        mainPage.fillLowerFormEmail(email);
+        mainPage.fillLowerFormPhone(phone);
+        mainPage.clickLowerFormSendButton();
+        mainPage.sleep(2000);
+        return new ThankYouPageSteps();
+    }
+
+    public ThankYouPageSteps fillCorrectFooterForm(String name, String email, String phone){
+        mainPage.fillFooterNameField(name);
+        mainPage.fillFooterEmailField(email);
+        mainPage.fillFooterPhoneField(phone);
+        mainPage.clickFooterSendButton();
+        mainPage.sleep(2000);
+        return new ThankYouPageSteps();
+    }
+
 
 }
