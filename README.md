@@ -31,4 +31,16 @@
    - **03_Redirection to social media pages:**   
         - Test validates correct redirection to social media pages
    
- 
+- **Main Page Tests**
+   - **01_Action of 'Back to top' button:**   
+        - Test validates action of 'Back to top' button
+   - **02_Action of 'Next' button:**   
+        - Test validates action of 'Next' button
+   - **03_Action of 'Previous' button:**   
+        - Test validates action of 'Previous' button
+   - **04_Correct behaviour of footer form:**   
+        - Test validates correct behaviour of footer form
+   - **05_Correct error messages of lower form:**   
+        - Test validates correct error messages of lower form
+   - **06_Correct error messages of footer form:**   
+        - Test validates correct error messages of footer form   
