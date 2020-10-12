@@ -94,7 +94,7 @@ public abstract class BasePage {
     /** JS Executor Methods **/
     public void scrollDown(){
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        sleep(2000);
+        //sleep(2000);
     }
 
     public void highlightElement(WebElement element) {

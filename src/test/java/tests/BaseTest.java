@@ -21,6 +21,7 @@ import utils.DriverFactory;
 import utils.PropertyReader;
 
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
@@ -52,6 +53,7 @@ public abstract class BaseTest {
     @BeforeClass
     public void setUp(){
         driver = DriverFactory.getDriver(PropertyReader.getBrowser());
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
         baseUrl = PropertyReader.getUrl();
         driver.get(baseUrl);

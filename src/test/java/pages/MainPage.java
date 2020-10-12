@@ -50,7 +50,7 @@ public class MainPage extends BasePage {
     @FindBy(id = "footer")
     WebElement footerForm;
 
-    @FindBy(css = ".form__ButtonContact-sc-1ju2h8q-1")
+    @FindBy(xpath = "//a[contains(@class, 'form__ButtonContact')]")
     WebElement lowerFormSendButton;
     @FindBy(css = "#name")
     WebElement lowerFormNameField;
