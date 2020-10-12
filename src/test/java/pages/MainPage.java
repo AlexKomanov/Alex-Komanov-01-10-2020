@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,7 +17,7 @@ public class MainPage extends BasePage {
     WebElement footerEmailField;
     @FindBy(name = "phone")
     WebElement footerPhoneField;
-    @FindBy(css = "[class='Footer__Button-sc-1xqajj9-7 jixtxJ']")
+    @FindBy(xpath = "//button[contains(@class, 'Footer__Button-sc')]")
     WebElement footerSendButton;
     @FindBy(css = "[name='name'] + label")
     WebElement footerNameErrorMessage;
@@ -37,7 +38,7 @@ public class MainPage extends BasePage {
     WebElement linkedInIcon;
     @FindBy(css = "a[class='commun__ContactText-mgrfny-7 dPWxSc']")
     WebElement mailToLink;
-    @FindBy(css = "[class='backToTop__BtnGoUp-sc-1deq75d-0 fIqtKc']")
+    @FindBy(xpath = "//a[contains(@class, 'backToTop__BtnGoUp')]")
     WebElement backToTopButton;
 
     @FindBy(xpath = "(//div[@class='slick-slide slick-active slick-current'])[1]")
@@ -164,6 +165,7 @@ public class MainPage extends BasePage {
     public void clickArrow(String button) {
         navigateToObject(upperSlickSlide);
         startDataIndex = getDataIndex();
+        sleep(500);
         switch (button) {
             case "Next":
                 click(slickArrowNext);
@@ -197,6 +199,7 @@ public class MainPage extends BasePage {
                 assertThat(footerForm.isDisplayed()).as("Wrong Direction").isTrue();
                 break;
             case "Not Displayed":
+                wait.until(ExpectedConditions.invisibilityOf(footerForm));
                 assertThat(footerForm.isDisplayed()).as("Wrong Direction").isFalse();
                 break;
         }

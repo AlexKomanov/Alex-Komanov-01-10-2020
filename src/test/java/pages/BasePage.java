@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Set;
 
 import static tests.BaseTest.getDriver;
@@ -19,6 +21,7 @@ import static tests.BaseTest.getJs;
 public abstract class BasePage {
 
     WebDriver driver;
+    WebDriverWait wait;
     JavascriptExecutor js;
     DevTools devTools;
 
@@ -26,6 +29,7 @@ public abstract class BasePage {
         this.driver = getDriver();
         this.js = getJs();
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void sleep(int interval){
@@ -46,7 +50,6 @@ public abstract class BasePage {
         //AllureAttachment.attachElementScreenshot(element);
         highlightElement(element);
         element.click();
-        sleep(1000);
     }
 
     public String getElementText(WebElement element){
@@ -94,7 +97,6 @@ public abstract class BasePage {
     /** JS Executor Methods **/
     public void scrollDown(){
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        //sleep(2000);
     }
 
     public void highlightElement(WebElement element) {
@@ -115,6 +117,5 @@ public abstract class BasePage {
 
     public void navigateToObject(WebElement element){
         js.executeScript("arguments[0].scrollIntoView(true);", element);
-        sleep(2000);
     }
 }
